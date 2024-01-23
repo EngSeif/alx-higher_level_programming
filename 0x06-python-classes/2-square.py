@@ -6,11 +6,11 @@
 
 class Square:
     """ Class of Square That Intializes
-    the Size of Square 
+    the Size of Square
     """
     __size = 0
 
-    def __init__(self, size = 0):
+    def __init__(self, size=0):
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
