@@ -15,7 +15,7 @@ class Square:
     __size = 0
     __postion = (0, 0)
 
-    def __init__(self, size=0, postion=(0,0)):
+    def __init__(self, size=0, postion=(0, 0)):
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
@@ -50,7 +50,7 @@ class Square:
     def position(self):
         """ Returns The Postion of Square"""
         return self.__postion
-    
+
     @position.setter
     def position(self, value):
         if type(value) is not tuple or len(value) != 2:
@@ -68,8 +68,8 @@ class Square:
                 for i in range(0, self.__postion[1]):
                     print()
             for i in range(0, self.__size):
+                print(" " * self.__postion[0] + "#" * self.__size)
 
-                print( " " * self.__postion[0] + "#" * self.__size)
     def __str__(self):
         """ Print Human Readable Info"""
         Output = ""
@@ -77,15 +77,7 @@ class Square:
             Output = "\n"
         else:
             if self.__postion[1] > 0:
-                    Output += "\n" * self.__postion[1] 
+                Output += "\n" * self.__postion[1]
             for i in range(0, self.__size):
                 Output += " " * self.__postion[0] + "#" * self.__size + "\n"
         return Output
-
-my_square = Square(5, (0, 0))
-print(my_square)
-
-print("--")
-
-my_square = Square(5, (4, 1))
-print(my_square)
