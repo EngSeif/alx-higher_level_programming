@@ -80,12 +80,12 @@ class Square:
                     Output += "\n" * self.__postion[1] 
             for i in range(0, self.__size):
                 Output += " " * self.__postion[0] + "#" * self.__size + "\n"
-        return Output
+        return Output.rstrip()
 
 my_square = Square(5, (0, 0))
 print(my_square)
 
 print("--")
 
-my_square = Square(5, (4, 1))
+my_square = Square(5, (4, 2))
 print(my_square)

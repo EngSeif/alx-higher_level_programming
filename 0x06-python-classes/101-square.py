@@ -80,4 +80,4 @@ class Square:
                 Output += "\n" * self.__postion[1]
             for i in range(0, self.__size):
                 Output += " " * self.__postion[0] + "#" * self.__size + "\n"
-        return Output
+        return Output.rstrip()
