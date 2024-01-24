@@ -4,6 +4,7 @@ import math
 
 
 class MagicClass:
+    """ This is A Magic Class Of Circle"""
     def __init__(self, radius):
         """ Constructor Of Class"""
         self.__radius = 0
