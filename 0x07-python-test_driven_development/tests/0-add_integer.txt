@@ -1,0 +1,39 @@
+===============================
+------ Add Int library --------
+===============================
+
+This library is very simple, since it only has one function called " add_integer(a, b=98) ".
+
+===============================
+
+< add_integer(a, b=98) > returns the Sum of its arguments:
+
+    >>> from importlib import import_module
+    >>> add_integer_module = import_module('0-add_integer')
+    >>> add_integer = add_integer_module.add_integer
+    >>> add_integer(3, 4)
+    7
+
+It also works with floating-point values After Converting it to intger:
+
+    >>> add_integer(2.0, 3.0)
+    5
+
+it Doesn't Accept Any Type Other Than "Int And Float"
+    >>> add_integer(2, True)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer(None, True)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer("Hello", 2)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(2, [1, 2, 3])
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+===============================================
