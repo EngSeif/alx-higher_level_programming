@@ -1,0 +1,56 @@
+===============================
+------ Add Int library --------
+------ Author : EngSeif -------
+===============================
+
+
+========== Description ===============
+
+    -   This library is very simple, since it only has one function called " print_square(size) ".
+
+==============  print_square(size) Description ==============
+
+    -   Prototype: def print_square(size):
+    -   size is the size length of the square
+    -   size must be an integer
+    -   if size is less than 0, raise a ValueError
+    -   if size is a float and is less than 0, raise a TypeError
+
+===============================
+------ Importing Module -------
+===============================
+
+    >>> print_square = __import__('4-print_square').print_square
+
+===============================
+--------- Test Cases ----------
+===============================
+
+< print_square(size) > Prints Size Of Square:
+
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+When Entering 0 it Prints NewLine:
+
+    >>> print_square(0)
+
+size must be an integer:
+
+    >>> print_square(5.4)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+if size is less than 0, raise a ValueError:
+
+    >>> print_square(-9)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+if size is a float and is less than 0, raise a TypeError exception:
+
+    >>> print_square(-6.4)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
