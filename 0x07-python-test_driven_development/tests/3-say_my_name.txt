@@ -1,0 +1,59 @@
+===============================
+------ Add Int library --------
+------ Author : EngSeif -------
+===============================
+
+
+========== Description ===============
+
+    -   This library is very simple, since it only has one function called " say_my_name(first_name, last_name="") ".
+
+==============  say_my_name(first_name, last_name="") Description ==============
+
+    -   Prototype: def say_my_name(first_name, last_name=""):
+    -   first_name and last_name must be strings
+
+===============================
+------ Importing Module -------
+===============================
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+===============================
+--------- Test Cases ----------
+===============================
+
+< say_my_name(first_name, last_name="") > Prints The Name Of Person 
+With Option Of Not Entering The Last Name :
+
+    Testing Two Strings:
+
+    >>> say_my_name("Jude", "Bellingham")
+    My name is Jude Bellingham
+
+    Testing One String:
+    >>> say_my_name("Jude")
+    My name is Jude 
+
+It Only Accept Strings:
+
+    Testing With Boolens:
+
+    >>> say_my_name(True, "Bellingham")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    Testing With Integers And Floats:
+
+    >>> say_my_name(15, "Bellingham")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Jude", 15)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    Testing with List ( Same For : Dictionaries, Tuples And Sets ):
+    >>> say_my_name(["Jude", "John"], "Bellingham")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string

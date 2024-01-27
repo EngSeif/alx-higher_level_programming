@@ -12,9 +12,7 @@
 ------ Importing Module -------
 ===============================
 
-    >>> from importlib import import_module
-    >>> add_integer_module = import_module('0-add_integer')
-    >>> add_integer = add_integer_module.add_integer
+    >>> add_integer = __import__('0-add_integer').add_integer
 
 ===============================
 --------- Test Cases ----------
