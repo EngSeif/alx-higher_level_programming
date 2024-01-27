@@ -1,39 +1,118 @@
 ===============================
 ------ Add Int library --------
+------ Author : EngSeif -------
 ===============================
 
-This library is very simple, since it only has one function called " add_integer(a, b=98) ".
+
+========== Description ===============
+
+    -   This library is very simple, since it only has one function called " add_integer(a, b=98) ".
 
 ===============================
-
-< add_integer(a, b=98) > returns the Sum of its arguments:
+------ Importing Module -------
+===============================
 
     >>> from importlib import import_module
     >>> add_integer_module = import_module('0-add_integer')
     >>> add_integer = add_integer_module.add_integer
+
+
+< add_integer(a, b=98) > returns the Sum of its arguments:
+
+    Test With Positive Integer Arguments:
+
     >>> add_integer(3, 4)
     7
 
-It also works with floating-point values After Converting it to intger:
+    Test With Negative Integer Arguments:
 
-    >>> add_integer(2.0, 3.0)
+    >>> add_integer(-3, -1)
+    -4
+
+    Test With Positive And Negative Integer Arguments:
+
+    >>> add_integer(-3, 2)
+    -1
+
+    >>> add_integer(-4, 7)
+    3
+
+
+It also works with floating-point values After Converting it to integer:
+
+    Test With Positive Float Arguments:
+
+    >>> add_integer(2.8, 3.4)
     5
 
-it Doesn't Accept Any Type Other Than "Int And Float"
+    Test With Negative Float Arguments:
+
+    >>> add_integer(-3.95, -1.5)
+    -4
+
+    Test With Positive And Negative Float Arguments:
+
+    >>> add_integer(-3.86, 2.74)
+    -1
+
+    >>> add_integer(-4.4, 7.9)
+    3
+
+If b Is Not Entered It is By default Equal to 98:
+
+    >>> add_integer(5)
+    103
+
+    >>> add_integer(-4.4)
+    94
+
+    >>> add_integer(-7)
+    91
+
+it Doesn't Accept Any Type Other Than "Int And Float":
+
+    Test With Boolens:
+
     >>> add_integer(2, True)
     Traceback (most recent call last):
     TypeError: b must be an integer
+
+    Test With None:
 
     >>> add_integer(None, True)
     Traceback (most recent call last):
     TypeError: a must be an integer
 
+    Test With Strings:    
+
     >>> add_integer("Hello", 2)
     Traceback (most recent call last):
     TypeError: a must be an integer
 
+    Test With List, Dictionaries, Tuples And Sets:
+
+        ====== Lists ======
+
     >>> add_integer(2, [1, 2, 3])
     Traceback (most recent call last):
     TypeError: b must be an integer
+
+        ====== Tuples ======
+
+    >>> add_integer((1 , 2), [1, 2, 3])
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+        ====== Sets ======
+
+    >>> add_integer({1 , 2}, 5)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+        ====== Dictionaries ======
+
+    >>> add_integer({"ID" : 5007}, 5)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
 
 ===============================================
