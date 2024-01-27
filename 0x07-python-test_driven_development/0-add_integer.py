@@ -13,7 +13,7 @@ def add_integer(a, b=98):
     Arguments :
         - a : First Integer
         - b : Second Integer
-    Return : a + b if the Checks are CompleteW
+    Return : a + b if the Checks are Complete
     """
 
     if type(a) not in [float, int]:

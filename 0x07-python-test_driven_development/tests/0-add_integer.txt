@@ -16,6 +16,9 @@
     >>> add_integer_module = import_module('0-add_integer')
     >>> add_integer = add_integer_module.add_integer
 
+===============================
+--------- Test Cases ----------
+===============================
 
 < add_integer(a, b=98) > returns the Sum of its arguments:
 

@@ -1,0 +1,129 @@
+===============================
+------ Add Int library --------
+------ Author : EngSeif -------
+===============================
+
+
+========== Description ===============
+
+    -   This library is very simple, since it only has one function called " matrix_divided(matrix, div) ".
+
+==============  matrix_divided(matrix, div) Description ==============
+
+    -   Prototype: def matrix_divided(matrix, div)
+    -   matrix must be a list of lists of integers or floats
+    -   Each row of the matrix must be of the same size
+    -   div must be a number (integer or float)
+    -   div can’t be equal to 0
+    -   All elements of the matrix should be divided by div, rounded to 2 decimal places
+    -   Returns a new matrix
+
+===============================
+------ Importing Module -------
+===============================
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+===============================
+--------- Test Cases ----------
+===============================
+
+< matrix_divided(matrix, div) > returns the Sum of its arguments:
+
+    Test With Positive Integer:
+
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    Test With Negative Integer:
+
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, -3)
+    [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+    Test With Positive Float:
+    >>> matrix = [[6, 8, 9], [8, 7, 14], [14, 15, 16]]
+    >>> matrix_divided(matrix, 3.5)
+    [[1.71, 2.29, 2.57], [2.29, 2.0, 4.0], [4.0, 4.29, 4.57]]
+
+    Test With Negative Float:
+    >>> matrix = [[6, 8, 9], [15, 17, 14], [64, 35, 167]]
+    >>> matrix_divided(matrix, -7.5)
+    [[-0.8, -1.07, -1.2], [-2.0, -2.27, -1.87], [-8.53, -4.67, -22.27]]
+
+div Must Be A Integer Or Float:
+
+    ==== Testing Different Data Types ====
+
+    Testing With Boolens:
+
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, True)
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    Testing With None:
+
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, None)
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    Testing With Strings:
+
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, "Hello")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    Testing with List ( Same For : Dictionaries, Tuples And Sets ):
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, [1, 2, 3])
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+matrix Must Be A List Of Lists Of Integers Or Floats:
+
+    ==== Testing Different Data Types ====
+
+    Testing With Boolens:
+
+    >>> matrix = [[1, True, 3],[4, False, 6]]
+    >>> matrix_divided(matrix, 5)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Testing With None:
+
+    >>> matrix = [[1, None, 3],[None, 5, 6]]
+    >>> matrix_divided(matrix, 8)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Testing With Strings:
+
+    >>> matrix = [[1, "Abos El NoNa", 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, 7)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Testing with List ( Same For : Dictionaries, Tuples And Sets ):
+    >>> matrix = [[1, [1, 2, 3], 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, 9)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Each row of the matrix must be of the same size:
+
+    >>> matrix = [[1, 4, 3, 7],[4, 3, 6]]
+    >>> matrix_divided(matrix, 5)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+div Must Not Be Zero:
+
+    >>> matrix = [[1, 4, 7],[4, 3, 6]]
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
