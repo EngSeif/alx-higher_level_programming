@@ -1,0 +1,63 @@
+================================
+--- Text Indentation library ---
+------ Author : EngSeif --------
+================================
+
+
+========== Description ===============
+
+    -   This library is very simple, since it only has one function called " text_indentation(text) ".
+
+==============  text_indentation(text) Description ==============
+
+    -   Prototype: def text_indentation(text):
+    -   text must be a string, otherwise raise a TypeError
+    -   There should be no space at the beginning or at the end of each printed line
+
+===============================
+------ Importing Module -------
+===============================
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+===============================
+--------- Test Cases ----------
+===============================
+
+< text_indentation(text) >prints a text with 2 new lines after each of these characters: <.> , <?> and <:> :
+
+    >>> text_indentation("""Jude - Hello. Man : Real Madrid Player ? Jude - Yes""")   
+    Jude - Hello.
+    <BLANKLINE>
+    Man :
+    <BLANKLINE>
+    Real Madrid Player ?
+    <BLANKLINE>
+    Jude - Yes
+
+Accepts Only Strings:
+
+    Testing With Ints And Floats:
+
+    >>> text_indentation(5)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation(-6.4)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    Testing With Boolens:
+    >>> text_indentation(True)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    Testing With None:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    Testing with Lists ( Same For : Dictionaries, Tuples And Sets ):
+    >>> text_indentation(["Me", "He", "Jude"])
+    Traceback (most recent call last):
+    TypeError: text must be a string
