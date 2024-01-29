@@ -60,3 +60,11 @@ class Rectangle:
             for i in range(0, self.height):
                 result += "#" * self.width + "\n"
         return result.strip()
+
+    def __repr__(self):
+        """ A String Representation Of The Rectangle """
+        return "Rectangle({}, {})".format(self.width, self.height)
+
+    def __del__(self):
+        """ Destructor Of Class Instance """
+        print("Bye rectangle...")
