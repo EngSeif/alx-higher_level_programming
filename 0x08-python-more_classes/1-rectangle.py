@@ -4,7 +4,7 @@
 
 class Rectangle:
     """ An Empty Class of Rectangle That does Nothing"""
-    
+
     def __init__(self, width=0, height=0):
         """ Constructor Of Class Instance"""
         self.__width = width
