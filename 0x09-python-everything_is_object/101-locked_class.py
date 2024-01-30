@@ -8,5 +8,5 @@ class LockedClass:
         if name == "first_name":
             super().__setattr__(name, value)
         else:
-            raise AttributeError("{} object has no attribute {}"
-                                 .format(LockedClass.__name__, name))
+            raise AttributeError("'{}' object has no attribute '{}'"
+                                 .format("LockedClass", name))
