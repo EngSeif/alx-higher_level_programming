@@ -86,6 +86,10 @@
     >>> my_list.print_sorted()
     ['-5', '2', '3', '5', '8']
 
-
+    Test With Parent:
+    >>> ListName = [1 ,5 ,2]
+    >>> ListName.print_sorted()
+    Traceback (most recent call last):
+    AttributeError: 'list' object has no attribute 'print_sorted'
 
 
