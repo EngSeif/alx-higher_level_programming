@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-Square = __import__('10-square').Square
+MyList = __import__('1-my_list').MyList
 
-s = Square(13)
-
-print(s)
-print(s.area())
+ListName = [1 ,5 ,2]
+ListName.print_sorted()

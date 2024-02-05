@@ -21,6 +21,11 @@
 --------- Test Cases ----------
 ===============================
 
+    Test Empty call:
+
+    >>> mylist.print_sorted()
+    Traceback (most recent call last):
+    NameError: name 'mylist' is not defined
 
     Test With Positive Integer Arguments:
 
@@ -80,4 +85,7 @@
     >>> my_list.append("3")
     >>> my_list.print_sorted()
     ['-5', '2', '3', '5', '8']
+
+
+
 
