@@ -1,0 +1,57 @@
+===============================
+------- MyList CLass ----------
+------ Author : EngSeif -------
+===============================
+
+
+========== Description ===============
+
+    -   This library is very simple, since it only has one CLass called " MyList "
+        That Inherits <---- list
+    
+    - You can assume that all the elements of the list will be of type int
+
+===============================
+------ Importing Module -------
+===============================
+
+    >>> MyList = __import__('1-my_list').MyList
+
+===============================
+--------- Test Cases ----------
+===============================
+
+
+    Test With Positive Integer Arguments:
+
+    >>> my_list = MyList()
+    >>> my_list.append(5)
+    >>> my_list.append(4)
+    >>> my_list.append(3)
+    >>> my_list.append(2)
+    >>> my_list.append(1)
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+    Test With Negative Integer Arguments:
+
+    >>> my_list = MyList()
+    >>> my_list.append(-5)
+    >>> my_list.append(-4)
+    >>> my_list.append(-1)
+    >>> my_list.append(-2)
+    >>> my_list.append(-3)
+    >>> my_list.print_sorted()
+    [-5, -4, -3, -2, -1]
+
+    Test With Positive And Negative Integer Arguments:
+
+    >>> my_list = MyList()
+    >>> my_list.append(-5)
+    >>> my_list.append(8)
+    >>> my_list.append(5)
+    >>> my_list.append(-2)
+    >>> my_list.append(2)
+    >>> my_list.print_sorted()
+    [-5, -2, 2, 5, 8]
+
