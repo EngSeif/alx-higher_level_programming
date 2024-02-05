@@ -66,9 +66,11 @@ Test for passing no arguments to integer_validator.
 Test for passing a boolean value.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+    TypeError: name must be an integer
 
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", False)
     Traceback (most recent call last):
     	...
-    ValueError: name must be greater than 0
+    TypeError: name must be an integer
