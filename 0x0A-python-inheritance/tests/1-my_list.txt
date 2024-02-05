@@ -55,3 +55,19 @@
     >>> my_list.print_sorted()
     [-5, -2, 2, 5, 8]
 
+
+    Test Empty list:
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
+    Test Repeated Numbers:
+        >>> my_list = MyList()
+    >>> my_list.append(-5)
+    >>> my_list.append(8)
+    >>> my_list.append(5)
+    >>> my_list.append(2)
+    >>> my_list.append(2)
+    >>> my_list.print_sorted()
+    [-5, 2, 2, 5, 8]
+
