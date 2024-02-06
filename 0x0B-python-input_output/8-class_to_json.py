@@ -4,8 +4,6 @@ This Module Contains :-
     -    class_to_json(obj)
 """
 
-import json
-
 
 def class_to_json(obj):
     """
