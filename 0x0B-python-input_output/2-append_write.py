@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This Module Contains :-
-    -    write_file(filename="", text="")
+    -    append_write(filename="", text="")
 """
 
 
