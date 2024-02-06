@@ -15,9 +15,7 @@ class Student:
     def to_json(self, attrs=None):
         result = dict()
         if attrs is None:
-            for key, value in self.__dict__.items():
-                if isinstance(value, (list, dict, str, int, bool)):
-                    result[key] = value
+            return self.__dict__
         else:
             for key, value in self.__dict__.items():
                 if key in attrs:
