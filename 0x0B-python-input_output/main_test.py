@@ -1,29 +1,34 @@
 #!/usr/bin/python3
-to_json_string = __import__('3-to_json_string').to_json_string
+""" My class module
+"""
+class MyClass:
+    """ My class
+    """
 
-my_list = [1, 2, 3]
-s_my_list = to_json_string(my_list)
-print(s_my_list)
-print(type(s_my_list))
+    score = 0
 
-my_dict = { 
-    'id': 12,
-    'name': "John",
-    'places': [ "San Francisco", "Tokyo" ],
-    'is_active': True,
-    'info': {
-        'age': 36,
-        'average': 3.14
-    }
-}
-s_my_dict = to_json_string(my_dict)
-print(s_my_dict)
-print(type(s_my_dict))
+    def __init__(self, name, number = 4):
+        self.__name = name
+        self.number = number
+        self.is_team_red = (self.number % 2) == 0
 
-try:
-    my_set = { 132, 3 }
-    s_my_set = to_json_string(my_set)
-    print(s_my_set)
-    print(type(s_my_set))
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    def win(self):
+        self.score += 1
+
+    def lose(self):
+        self.score -= 1
+
+    def __str__(self):
+        return "[MyClass] {} - {:d} => {:d}".format(self.__name, self.number, self.score)
+
+
+class_to_json = __import__('8-class_to_json').class_to_json
+
+m = MyClass("John")
+m.win()
+print(type(m))
+print(m)
+
+mj = class_to_json(m)
+print(type(mj))
+print(mj)
