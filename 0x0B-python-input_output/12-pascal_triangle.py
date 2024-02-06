@@ -19,7 +19,7 @@ def pascal_triangle(n):
     if n <= 0:
         return []
     result = []
-    for i in range(0, n+1):
+    for i in range(0, n):
         if i == 0:
             result.append([1])
             continue
@@ -27,8 +27,8 @@ def pascal_triangle(n):
             result.append([1, 1])
             continue
         inner = []
-        for j in range(0, i):
-            if j == 0 or j == i - 1:
+        for j in range(0, i + 1):
+            if j == 0 or j == i:
                 inner.append(1)
                 continue
             cal = result[i - 1][j - 1] + result[i - 1][j]
