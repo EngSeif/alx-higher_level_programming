@@ -15,10 +15,11 @@ class Student:
     def to_json(self, attrs=None):
         result = dict()
         if attrs is None:
-            return self.__dict__
+            for key, value in self.__dict__.items():
+                if isinstance(value, (list, dict, str, int, bool)):
+                    result[key] = value
         else:
-            json_dict = {}
-            for attr in attrs:
-                if hasattr(self, attr):
-                    json_dict[attr] = getattr(self, attr)
-            return json_dict
+            for key, value in self.__dict__.items():
+                if key in attrs:
+                    result[key] = value
+        return result   
