@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This Script :
-    adds all arguments to a Python list, and then save them to a file
+This Script Contains : adds all arguments to a Python list, and then save them to a file
 """
 
 import sys
