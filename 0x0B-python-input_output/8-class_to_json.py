@@ -25,4 +25,3 @@ def class_to_json(obj):
         if isinstance(value, (list, dict, str, int, bool)):
             result[key] = value
     return result
-
