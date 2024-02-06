@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-read_file = __import__('0-read_file').read_file
+write_file = __import__('1-write_file').write_file
 
-read_file("Txt_Dir/my_file_0.txt")
+nb_characters = write_file("Txt_Dir/my_first_file.txt", "This School is so cool!\n")
+print(nb_characters)
