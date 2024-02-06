@@ -19,5 +19,5 @@ def save_to_json_file(my_obj, filename):
     Return :
         None
     """
-    with open(filename, mode="a", encoding="utf-8") as rFile:
+    with open(filename, encoding="utf-8") as rFile:
         json.dump(my_obj, rFile)
