@@ -13,11 +13,11 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        result = dict()
         if attrs is None:
             return self.__dict__
         else:
+            result = dict()
             for attr in attrs:
                 if hasattr(self, attr):
                     result[attr] = getattr(self, attr)
-        return result   
+            return result
