@@ -25,8 +25,6 @@ def main():
             line_count += 1
             if line_count % 10 == 0:
                 Print_Data(total_size, Status_Dict)
-            else:
-                line_count += 1
             sp_line = line.split()
             try:
                 total_size += int(sp_line[-1])
