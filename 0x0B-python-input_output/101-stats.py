@@ -15,7 +15,11 @@ def compute_metrics():
     try:
         lines_processed = 0
         for line in sys.stdin:
-            lines_processed += 1
+            if lines_processed == 10:
+                print_metrics(total_file_size, status_code_count)
+                lines_processed = 1
+            else:
+                lines_processed += 1
             try:
                 line = line.split()
                 status_code_str = line[-2]
@@ -27,8 +31,7 @@ def compute_metrics():
             except ValueError:
                 continue
             
-            if lines_processed % 10 == 0:
-                print_metrics(total_file_size, status_code_count)
+
 
     except KeyboardInterrupt:
         print_metrics(total_file_size, status_code_count)
