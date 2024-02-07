@@ -9,7 +9,6 @@ This Script:
 import sys
 
 def Print_Data(t_size, status_dict):
-    print("Now I am Printing")
     print("File size: {}".format(t_size))
     for code in sorted(status_dict.keys()):
         if status_dict[code] > 0:
@@ -26,6 +25,10 @@ def main():
             line_count += 1
             if line_count % 10 == 0:
                 Print_Data(total_size, Status_Dict)
+                total_size = 0
+                Status_Dict = {'200': 0, '301': 0, '400': 0,
+                            '401': 0, '403': 0, '404': 0,
+                            '405': 0, '500': 0}
             sp_line = line.split()
             try:
                 total_size += int(sp_line[-1])
