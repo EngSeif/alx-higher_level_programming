@@ -8,11 +8,13 @@ This Script:
 
 import sys
 
+
 def Print_Data(t_size, status_dict):
     print("File size: {}".format(t_size))
     for code in sorted(status_dict.keys()):
         if status_dict[code] > 0:
             print("{}: {}".format(code, status_dict[code]))
+
 
 def main():
     total_size = 0
@@ -22,9 +24,11 @@ def main():
 
     try:
         for line in sys.stdin:
-            line_count += 1
-            if line_count % 10 == 0:
+            if line_count == 10:
                 Print_Data(total_size, Status_Dict)
+                line_count = 1
+            else:
+                line_count += 1
             sp_line = line.split()
             try:
                 total_size += int(sp_line[-1])
@@ -40,6 +44,7 @@ def main():
     except KeyboardInterrupt:
         Print_Data(total_size, Status_Dict)
         raise
+
 
 if __name__ == "__main__":
     main()
