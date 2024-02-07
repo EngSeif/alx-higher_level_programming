@@ -37,7 +37,7 @@ def main():
             except (ValueError, IndexError):
                 pass
             try:
-                status_code = line.strip().split(" ")[-2]
+                status_code = line[-2]
                 if status_code in Status_Count:
                     Status_Count[status_code] += 1
             except IndexError:
