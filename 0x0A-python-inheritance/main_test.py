@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-MyList = __import__('1-my_list').MyList
+MyInt = __import__('100-my_int').MyInt
 
-ListName = [1 ,5 ,2]
-ListName.print_sorted()
+my_i = MyInt(3)
+print(my_i)
+print(my_i == 3)
+print(my_i != 3)
