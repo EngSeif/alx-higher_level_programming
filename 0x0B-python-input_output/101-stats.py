@@ -25,13 +25,20 @@ def main():
     line_count = 0
     try:
         for line in sys.stdin:
-            status_code = line.strip().split(" ")[7]
-            file_size = line.strip().split(" ")[8]
-            total_size += int(file_size)
-            if status_code in Status_Count:
-                Status_Count[status_code] += 1
-            else:
-                Status_Count[status_code] += 1
+            try:
+                file_size = line.strip().split(" ")[8]
+                total_size += int(file_size)
+            except (ValueError, IndexError):
+                continue
+
+            try:
+                status_code = line.strip().split(" ")[7]
+                if status_code in Status_Count:
+                    Status_Count[status_code] += 1
+                else:
+                    Status_Count[status_code] += 1
+            except IndexError:
+                continue
             line_count += 1
             if line_count % 10 == 0:
                 Print_Data(total_size, Status_Count)
