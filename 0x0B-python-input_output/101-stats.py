@@ -11,6 +11,7 @@ import sys
 def Print_Data(t_size, status_dict):
     print("File size: {}".format(t_size))
     for code in sorted(status_dict.keys()):
+        if status_dict[code] > 0:
             print("{}: {}".format(code, status_dict[code]))
 
 def main():
