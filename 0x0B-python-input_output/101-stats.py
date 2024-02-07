@@ -11,10 +11,11 @@ import sys
 
 def Print_Data(file_size, Status_Count):
     """ Print Metrics """
-    print("File size: {}".format(file_size))
-    for status_code, count in sorted(Status_Count.items()):
-        if count > 0:
-            print("{}: {}".format(status_code, count))
+    if file_size > 0:
+        print("File size: {}".format(file_size))
+        for status_code, count in sorted(Status_Count.items()):
+            if count > 0:
+                print("{}: {}".format(status_code, count))
 
 
 def main():
@@ -25,24 +26,23 @@ def main():
     line_count = 0
     try:
         for line in sys.stdin:
+            line_count += 1
+            if line_count % 10 == 0:
+                Print_Data(total_size, Status_Count)
             try:
-                file_size = line.strip().split(" ")[8]
+                file_size = line.strip().split(" ")[-1]
                 total_size += int(file_size)
             except (ValueError, IndexError):
-                continue
-
+                pass
             try:
-                status_code = line.strip().split(" ")[7]
+                status_code = line.strip().split(" ")[-2]
                 if status_code in Status_Count:
                     Status_Count[status_code] += 1
                 else:
                     Status_Count[status_code] += 1
             except IndexError:
-                continue
-            line_count += 1
-            if line_count % 10 == 0:
-                Print_Data(total_size, Status_Count)
-        print(total_size, Status_Count)
+                pass
+        Print_Data(total_size, Status_Count)
     except KeyboardInterrupt:
         Print_Data(total_size, Status_Count)
         raise
