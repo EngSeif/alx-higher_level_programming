@@ -26,11 +26,9 @@ def main():
     line_count = 0
     try:
         for line in sys.stdin:
-            if line_count == 10:
+            line_count += 1
+            if line_count % 10 == 0:
                 Print_Data(total_size, Status_Count)
-                line_count = 1
-            else:
-                line_count += 1
             line = line.split()
             try:
                 total_size += int(line[-1])
