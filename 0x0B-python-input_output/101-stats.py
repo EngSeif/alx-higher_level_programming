@@ -29,9 +29,9 @@ def main():
             line_count += 1
             if line_count % 10 == 0:
                 Print_Data(total_size, Status_Count)
+            line = line.split()
             try:
-                file_size = line.strip().split(" ")[-1]
-                total_size += int(file_size)
+                total_size += int(line[-1])
             except (ValueError, IndexError):
                 pass
             try:
