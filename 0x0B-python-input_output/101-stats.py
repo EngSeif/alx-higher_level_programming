@@ -8,40 +8,36 @@ This Script:
 
 import sys
 
-def compute_metrics():
-    total_file_size = 0
-    status_code_count = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+def Print_Data(t_size, status_dict):
+    print("Now I am Printing")
+    print("File size: {}".format(t_size))
+    for code in sorted(status_dict.keys()):
+        if status_dict[code] > 0:
+            print("{}: {}".format(code, status_dict[code]))
 
+def main():
+    total_size = 0
+    line_count = 0
+    Status_Dict = {'200': 0, '301': 0, '400': 0,
+                    '401': 0, '403': 0, '404': 0,
+                    '405': 0, '500': 0}
     try:
-        lines_processed = 0
         for line in sys.stdin:
-            if lines_processed == 10:
-                print_metrics(total_file_size, status_code_count)
-                lines_processed = 1
-            else:
-                lines_processed += 1
+            line_count += 1
+            if line_count % 10 == 0:
+                Print_Data(total_size, Status_Dict)
+            sp_line = line.split()
             try:
-                line = line.split()
-                status_code_str = line[-2]
-                file_size_str = line[-1]
-                status_code = int(status_code_str)
-                file_size = int(file_size_str)
-                total_file_size += file_size
-                status_code_count[status_code] += 1
-            except ValueError:
-                continue
-            
-
-
+                total_size += int(sp_line[-1])
+                status_code = sp_line[-2]
+                if status_code in Status_Dict.keys():
+                    Status_Dict[status_code] += 1
+            except (ValueError, IndexError):
+                pass
+        Print_Data(total_size, Status_Dict)
     except KeyboardInterrupt:
-        print_metrics(total_file_size, status_code_count)
+        Print_Data(total_size, Status_Dict)
         raise
 
-def print_metrics(total_file_size, status_code_count):
-    print(f'Total file size: {total_file_size}')
-    for status_code in sorted(status_code_count.keys()):
-        if status_code_count[status_code] > 0:
-            print(f'{status_code}: {status_code_count[status_code]}')
-
 if __name__ == "__main__":
-    compute_metrics()
+    main()
