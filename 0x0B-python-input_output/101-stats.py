@@ -38,16 +38,8 @@ def main():
             except (ValueError, IndexError):
                 pass
         Print_Data(total_size, Status_Dict)
-        total_size = 0
-        Status_Dict = {'200': 0, '301': 0, '400': 0,
-                        '401': 0, '403': 0, '404': 0,
-                        '405': 0, '500': 0}
     except KeyboardInterrupt:
         Print_Data(total_size, Status_Dict)
-        total_size = 0
-        Status_Dict = {'200': 0, '301': 0, '400': 0,
-                        '401': 0, '403': 0, '404': 0,
-                        '405': 0, '500': 0}
         raise
 
 if __name__ == "__main__":
