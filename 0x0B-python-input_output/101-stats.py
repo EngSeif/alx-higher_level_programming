@@ -29,13 +29,14 @@ def main():
             sp_line = line.split()
             try:
                 total_size += int(sp_line[-1])
-                if line[-2] in valid_codes:
-                    if Status_Dict.get(line[-2], -1) == -1:
-                        Status_Dict[line[-2]] = 1
+                if sp_line[-2] in valid_codes:
+                    if Status_Dict.get(sp_line[-2], -1) == -1:
+                        Status_Dict[sp_line[-2]] = 1
                     else:
-                        Status_Dict[line[-2]] += 1
+                        Status_Dict[sp_line[-2]] += 1
             except (ValueError, IndexError):
                 pass
+
         Print_Data(total_size, Status_Dict)
     except KeyboardInterrupt:
         Print_Data(total_size, Status_Dict)
