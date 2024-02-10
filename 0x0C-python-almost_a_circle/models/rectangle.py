@@ -25,10 +25,12 @@ class Rectangle(Base):
 
     def display(self):
         """ Print Rectangle With # """
+        for i in range(0, self.y):
+            print()
         for h in range(0, self.height):
-            print("#" * self.width)
+            print(" " * self.x + "#" * self.width)
 
-    def __str__(self) :
+    def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
 
