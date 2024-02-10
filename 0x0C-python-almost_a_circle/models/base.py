@@ -41,3 +41,26 @@ class Base:
             list_objs = []
         with open(filename, 'w') as file:
             file.write(cls.to_json_string([obj.to_dictionary() for obj in list_objs]))
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == 'Rectangle':
+            Dummy = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            Dummy = cls(1)
+        Dummy.update(**dictionary)
+        return Dummy
+
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, mode="r", encoding="utf-8") as Ofile:
+                j_data = Ofile.read()
+                dict_obj = cls.from_json_string(j_data)
+                instances = [cls.create(**data) for data in dict_obj]
+                return instances
+        except FileNotFoundError:
+            return []
+
+
