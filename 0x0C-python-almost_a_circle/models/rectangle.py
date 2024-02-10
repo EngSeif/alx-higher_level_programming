@@ -30,14 +30,15 @@ class Rectangle(Base):
         for h in range(0, self.height):
             print(" " * self.x + "#" * self.width)
 
-    def update(self, *args):
-        if len(args) > 0:
-            if len(args) >= 1:
-                super().__init__(args[0])
-            self.width = args[1] if len(args) >= 2 else self.width
-            self.height = args[2] if len(args) >= 3 else self.height
-            self.x = args[3] if len(args) >= 4 else self.x
-            self.y = args[4] if len(args) >= 5 else self.y
+    def update(self, *args, **kwargs):
+        if args:
+            attrs = ['id', 'width', 'height', 'x', 'y']
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+        else:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
 
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
