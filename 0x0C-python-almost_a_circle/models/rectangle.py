@@ -23,6 +23,11 @@ class Rectangle(Base):
         """ Return Area Of Rectangle """
         return self.width * self.height
 
+    def display(self):
+        """ Print Rectangle With # """
+        for h in range(0, self.height):
+            print("#" * self.width)
+
     @property
     def width(self):
         """ Width Getter """
