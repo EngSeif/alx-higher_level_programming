@@ -4,6 +4,9 @@ from models.base import Base
 
 if __name__ == "__main__":
 
+    ob = Base(0)
+    print(ob.id)
+
     b1 = Base()
     print(b1.id)
 
@@ -18,3 +21,5 @@ if __name__ == "__main__":
 
     b5 = Base()
     print(b5.id)
+
+
