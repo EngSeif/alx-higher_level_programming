@@ -67,6 +67,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """ Save CSV Data """
         filename = cls.__name__ + ".csv"
         if list_objs is None:
             list_objs = []
@@ -77,6 +78,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """ Load CSV Data """
         filename = cls.__name__ + ".csv"
         try:
             with open(filename, mode="r", encoding="utf-8") as Ofile:
@@ -89,8 +91,10 @@ class Base:
             return []
 
     def to_csv(self):
+        """ Convert To CSV """
         pass
 
     @classmethod
     def from_csv(cls, row):
+        """ Decode From CSV """
         pass
