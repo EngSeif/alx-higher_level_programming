@@ -12,18 +12,17 @@ from models.rectangle import Rectangle
 class TestBase(unittest.TestCase):
     """ Test Cases Class For Rectangle Class """
 
-
     def setUp(self):
         # Set up the test fixture
         r = Rectangle(4, 5, 0, 2)
 
     def test_Getters_Setters(self):
-        """ 
+        """
         -   Test Getters And Setters
         """
         r = Rectangle(4, 5, 0, 2)
         r.width = 6
-        r.height= 15
+        r.height = 15
         r.x = 7
         r.y = 3
         self.assertEqual(r.width, 6)
@@ -37,7 +36,7 @@ class TestBase(unittest.TestCase):
     def test_class(self):
         """ Test Rectangle class type """
         self.assertEqual(str(Rectangle),
-                        "<class 'models.rectangle.Rectangle'>")
+                         "<class 'models.rectangle.Rectangle'>")
 
     def test_class_inheritance(self):
         """ Test if Rectangle inherits from Base """
@@ -56,27 +55,26 @@ class TestBase(unittest.TestCase):
         self.assertRaises(TypeError, r.width, 5.1)
         self.assertRaises(TypeError, r.width, True)
         self.assertRaises(TypeError, r.width, [1, 2, 3])
-        self.assertRaises(TypeError, r.width, {"Key" : 5})
+        self.assertRaises(TypeError, r.width, {"Key": 5})
         # Height Test
         self.assertRaises(TypeError, r.height, -5.1)
         self.assertRaises(TypeError, r.height, False)
         self.assertRaises(TypeError, r.height, [7, 5, 3, -8])
-        self.assertRaises(TypeError, r.height, {0 : True})
+        self.assertRaises(TypeError, r.height, {0: True})
         # x Test
         self.assertRaises(TypeError, r.x, -5.7)
         self.assertRaises(TypeError, r.x, False)
         self.assertRaises(TypeError, r.x, [7, -7, 3, -8])
-        self.assertRaises(TypeError, r.x, {0 : (1, 2)})
+        self.assertRaises(TypeError, r.x, {0: (1, 2)})
         # y Test
         self.assertRaises(TypeError, r.x, 5.7)
         self.assertRaises(TypeError, r.x, True)
         self.assertRaises(TypeError, r.x, [7, -7, 8, -8])
-        self.assertRaises(TypeError, r.x, {"HeHe" : (1, 2)})
+        self.assertRaises(TypeError, r.x, {"HeHe": (1, 2)})
 
     def test_InputValues(self):
         r = Rectangle(4, 5, 3, 2)
-        
-        with  self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):
             # Test Width And Height
             r.width = 0
             r.height = 0
@@ -129,7 +127,7 @@ class TestBase(unittest.TestCase):
             self.assertEqual(str_out.getvalue(), result)
         r = Rectangle(3, 2)
 
-        r.height = 4 
+        r.height = 4
         result = "###\n###\n###\n###\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             r.display()
@@ -218,7 +216,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r.x, 10)
         self.assertEqual(r.y, 10)
 
-        # Test 4 Args 
+        # Test 4 Args
 
         r.update(89, 2, 3, 4)
         self.assertEqual(r.id, 89)
@@ -253,7 +251,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r.height, 1)
         self.assertEqual(r.x, 2)
         self.assertEqual(r.y, 10)
-    
+
         r.update(y=1, width=2, x=3, id=89)
         self.assertEqual(r.id, 89)
         self.assertEqual(r.width, 2)
@@ -278,7 +276,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r.height, 10)
         self.assertEqual(r.x, 10)
         self.assertEqual(r.y, 10)
-
 
 
 if __name__ == '__main__':

@@ -56,9 +56,11 @@ class Square(Rectangle):
         return S_Dict
 
     def to_csv(self):
+        """ To CSV Format """
         return [self.id, self.size, self.x, self.y]
 
     @classmethod
     def from_csv(cls, row):
+        """ Decode From CSV"""
         id, size, x, y = map(int, row)
         return cls(size, x, y, id)

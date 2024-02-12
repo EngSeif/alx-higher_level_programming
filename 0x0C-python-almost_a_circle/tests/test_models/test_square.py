@@ -13,13 +13,12 @@ from models.square import Square
 class TestBase(unittest.TestCase):
     """ Test Cases Class For Square Class """
 
-
     def setUp(self):
         # Set up the test fixture
         s = Square(4, 5, 0, 2)
 
     def test_Getters_Setters(self):
-        """ 
+        """
         -   Test Getters And Setters
         """
         s = Square(4, 5, 0, 2)
@@ -36,7 +35,7 @@ class TestBase(unittest.TestCase):
     def test_class(self):
         """ Test Rectangle class type """
         self.assertEqual(str(Square),
-                        "<class 'models.square.Square'>")
+                         "<class 'models.square.Square'>")
 
     def test_class_inheritance(self):
         """ Test if Rectangle inherits from Base """
@@ -55,22 +54,21 @@ class TestBase(unittest.TestCase):
         self.assertRaises(TypeError, s.size, 5.1)
         self.assertRaises(TypeError, s.size, True)
         self.assertRaises(TypeError, s.size, [1, 2, 3])
-        self.assertRaises(TypeError, s.size, {"Key" : 5})
+        self.assertRaises(TypeError, s.size, {"Key": 5})
         # x Test
         self.assertRaises(TypeError, s.x, -5.7)
         self.assertRaises(TypeError, s.x, False)
         self.assertRaises(TypeError, s.x, [7, -7, 3, -8])
-        self.assertRaises(TypeError, s.x, {0 : (1, 2)})
+        self.assertRaises(TypeError, s.x, {0: (1, 2)})
         # y Test
         self.assertRaises(TypeError, s.x, 5.7)
         self.assertRaises(TypeError, s.x, True)
         self.assertRaises(TypeError, s.x, [7, -7, 8, -8])
-        self.assertRaises(TypeError, s.x, {"HeHe" : (1, 2)})
+        self.assertRaises(TypeError, s.x, {"HeHe": (1, 2)})
 
     def test_InputValues(self):
         s = Square(4, 5, 0, 2)
-        
-        with  self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):
             # Test Width And Height
             s.size = 0
             s.size = -9
@@ -199,7 +197,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s.x, 3)
         self.assertEqual(s.y, 10)
 
-        # Test 4 Args 
+        # Test 4 Args
 
         s.update(89, 2, 3, 4)
         self.assertEqual(s.id, 89)
@@ -223,7 +221,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s.x, 2)
         self.assertEqual(s.y, 10)
 
-    
         s.update(y=1, size=2, x=3, id=89)
         self.assertEqual(s.id, 89)
         self.assertEqual(s.size, 2)
@@ -239,7 +236,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s.size, 5)
         self.assertEqual(s.x, 7)
         self.assertEqual(s.y, 8)
-
 
 
 if __name__ == '__main__':

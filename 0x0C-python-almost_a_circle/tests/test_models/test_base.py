@@ -8,22 +8,20 @@ from models.base import Base
 class TestBase(unittest.TestCase):
     """ Test Cases Class For Base Class """
 
-
     def test_docstring(self):
         self.assertIsNotNone(Base.__doc__)
 
     def test_class(self):
         """ Test Rectangle class type """
         self.assertEqual(str(Base),
-                        "<class 'models.base.Base'>")
+                         "<class 'models.base.Base'>")
 
     def test_class_inheritance(self):
         """ Test if Rectangle inherits from Base """
         self.assertTrue(issubclass(Base, Base))
 
-    
     def test_id(self):
-        """ 
+        """
         -   Test Id With Different Values
         -   Id Is Assumed to Be Integer So
             We Dont Need To Test It

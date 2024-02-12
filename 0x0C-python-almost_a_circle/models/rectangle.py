@@ -58,10 +58,12 @@ class Rectangle(Base):
             self.id, self.x, self.y, self.width, self.height)
 
     def to_csv(self):
+        """ To CSV Format """
         return [self.id, self.width, self.height, self.x, self.y]
 
     @classmethod
     def from_csv(cls, row):
+        """ Decode From CSV """
         id, width, height, x, y = map(int, row)
         return cls(width, height, x, y, id)
 
