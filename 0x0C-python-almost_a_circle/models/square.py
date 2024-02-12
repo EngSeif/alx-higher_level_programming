@@ -15,6 +15,7 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """ Formal Info About Class Atrributes """
         return "[Square] ({}) {}/{} - {}".format(
             self.id, self.x, self.y, self.width)
 
@@ -34,6 +35,7 @@ class Square(Rectangle):
         self.height = s
 
     def update(self, *args, **kwargs):
+        """ Convert Attributes To Dictionary """
         if args:
             attrs = ['id', 'size', 'x', 'y']
             for i, arg in enumerate(args):
@@ -44,6 +46,7 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
+        """ Convert Attributes To Dictionary """
         S_Dict = {
                 'id': self.id,
                 'size': self.size,

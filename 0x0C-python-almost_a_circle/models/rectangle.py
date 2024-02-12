@@ -31,6 +31,7 @@ class Rectangle(Base):
             print(" " * self.x + "#" * self.width)
 
     def update(self, *args, **kwargs):
+        """ Update Rectangle Attributes"""
         if args:
             attrs = ['id', 'width', 'height', 'x', 'y']
             for i, arg in enumerate(args):
@@ -41,6 +42,7 @@ class Rectangle(Base):
                     setattr(self, key, value)
 
     def to_dictionary(self):
+        """ Convert Attributes To Dictionary """
         R_Dict = {
                 'id': self.id,
                 'width': self.width,
@@ -51,6 +53,7 @@ class Rectangle(Base):
         return R_Dict
 
     def __str__(self):
+        """ Formal Info About Class Atrributes """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
 
