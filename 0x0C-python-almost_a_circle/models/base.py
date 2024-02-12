@@ -131,7 +131,8 @@ class Base:
 
         pen.color("blue")
         for rectangle in list_rectangles:
-            x, y, width, height = rectangle.x, rectangle.y, rectangle.width, rectangle.height
+            x, y, width, height = rectangle.x,
+            rectangle.y, rectangle.width, rectangle.height
             draw_rectangle(x, y, width, height)
 
         pen.color("blue")
