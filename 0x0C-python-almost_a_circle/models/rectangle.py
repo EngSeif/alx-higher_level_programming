@@ -36,7 +36,7 @@ class Rectangle(Base):
             attrs = ['id', 'width', 'height', 'x', 'y']
             for i, arg in enumerate(args):
                 setattr(self, attrs[i], arg)
-        else:
+        elif kwargs:
             for key, value in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
