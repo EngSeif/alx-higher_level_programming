@@ -237,6 +237,28 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s.x, 7)
         self.assertEqual(s.y, 8)
 
+    def test_dictRep(self):
+        s = Square(5)
+        self.assertEqual(s.to_dictionary(),
+                         {'id': s.id, 'x': 0, 'size': 5, 'y': 0})
+        s = Square(5, 1)
+        self.assertEqual(s.to_dictionary(),
+                         {'id': s.id, 'x': 1, 'size': 5, 'y': 0})
+        s = Square(5, 1, 2)
+        self.assertEqual(s.to_dictionary(),
+                         {'id': s.id, 'x': 1, 'size': 5, 'y': 2})
+        s = Square(5, 1, 2, 89)
+        self.assertEqual(s.to_dictionary(),
+                         {'id': 89, 'x': 1, 'size': 5, 'y': 2})
+
+        s = Square(5, 1, 2, 89)
+        s.size = 10
+        s.id = 6
+        s.x = 7
+        s.y = 6
+        self.assertEqual(s.to_dictionary(),
+                         {'id': 6, 'x': 7, 'size': 10, 'y': 6})
+
 
 if __name__ == '__main__':
     unittest.main()
