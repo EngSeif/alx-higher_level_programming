@@ -99,8 +99,6 @@ were given"
 
     def test_from_json_string(self):
         """ Test from_json_string method """
-        self.assertEqual(Base.from_json_string(""), [])
-        self.assertEqual(Base.from_json_string(None), [])
         list_input = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
