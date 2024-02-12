@@ -6,7 +6,7 @@ from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):
-    """ Test Cases Class For Base Class """
+    """ Test Cases Class For Rectangle Class """
     def test_Getters_Setters(self):
         """ 
         -   Test Getters And Setters
