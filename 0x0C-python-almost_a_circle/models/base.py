@@ -6,6 +6,7 @@ and to avoid duplicating the same code (by extension, same bugs)
 """
 
 import json
+import csv
 
 
 class Base:
@@ -63,3 +64,33 @@ class Base:
                 return instances
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        filename = cls.__name__ + ".csv"
+        if list_objs is None:
+            list_objs = []
+        with open(filename, mode="w", newline='') as Ofile:
+            writer = csv.writer(Ofile)
+            for obj in list_objs:
+                writer.writerow(obj.to_csv())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, mode="r", encoding="utf-8") as Ofile:
+                aha = csv.reader(Ofile)
+                obj = []
+                for row in aha:
+                    obj.append(cls.from_csv(row))
+                return obj
+        except FileNotFoundError:
+            return []
+
+    def to_csv(self):
+        pass
+
+    @classmethod
+    def from_csv(cls, row):
+        pass
