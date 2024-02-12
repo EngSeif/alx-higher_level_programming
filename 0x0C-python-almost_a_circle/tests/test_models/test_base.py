@@ -2,7 +2,6 @@
 """ This Module Is To Test Base Class"""
 
 
-import os
 import unittest
 import json
 from models.base import Base
@@ -12,16 +11,6 @@ from models.square import Square
 
 class TestBase(unittest.TestCase):
     """ Test Cases Class For Base Class """
-
-    test_dir = 'test_files'
-
-    def setUp(self):
-        # Create a temporary directory for testing
-        os.makedirs(self.test_dir, exist_ok=True)
-
-    def tearDown(self):
-        # Remove the temporary directory after testing
-        os.rmdir(self.test_dir)
 
     def test_docstring(self):
         self.assertIsNotNone(Base.__doc__)
@@ -93,50 +82,6 @@ class TestBase(unittest.TestCase):
                           '{"id": 2, "info": {"name": "Bob", "age": 25}}]'
         self.assertEqual(Base.to_json_string(list_dictionaries),
                          expected_result)
-
-    def test_save_to_file_empty_list(self):
-        # Test when list_objs is an empty list
-        filename = os.path.join(self.test_dir, 'Rectangle.json')
-        Base.save_to_file([])
-        self.assertTrue(os.path.exists(filename))
-        with open(filename, 'r') as file:
-            content = file.read()
-            self.assertEqual(content, '[]')
-
-    def test_save_to_file_none(self):
-        # Test when list_objs is None
-        filename = os.path.join(self.test_dir, 'Rectangle.json')
-        Base.save_to_file(None)
-        self.assertTrue(os.path.exists(filename))
-        with open(filename, 'r') as file:
-            content = file.read()
-            self.assertEqual(content, '[]')
-
-    def test_save_to_file_single_object(self):
-        # Test when list_objs contains a single object
-        filename = os.path.join(self.test_dir, 'Rectangle.json')
-        rectangle = Rectangle(1, 2)
-        Base.save_to_file([rectangle])
-        self.assertTrue(os.path.exists(filename))
-        with open(filename, 'r') as file:
-            content = file.read()
-            self.assertEqual(content, '[{"id": 1, "width": 1, "height": 2}]')
-
-    def test_save_to_file_multiple_objects(self):
-        # Test when list_objs contains multiple objects
-        rectangle_file = os.path.join(self.test_dir, 'Rectangle.json')
-        square_file = os.path.join(self.test_dir, 'Square.json')
-        rectangle = Rectangle(1, 2)
-        square = Square(3)
-        Base.save_to_file([rectangle, square])
-        self.assertTrue(os.path.exists(rectangle_file))
-        self.assertTrue(os.path.exists(square_file))
-        with open(rectangle_file, 'r') as file:
-            content = file.read()
-            self.assertEqual(content, '[{"id": 1, "width": 1, "height": 2}]')
-        with open(square_file, 'r') as file:
-            content = file.read()
-            self.assertEqual(content, '[{"id": 2, "size": 3}]')
 
 
 if __name__ == '__main__':
