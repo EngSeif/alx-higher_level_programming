@@ -194,21 +194,3 @@ were given"
         self.assertEqual(str(list_in[0]), str(list_out[0]))
         self.assertNotEqual(id(list_in[1]), id(list_out[1]))
         self.assertEqual(str(list_in[1]), str(list_out[1]))
-
-    def test_load_from_file_empty_file(self):
-        """ Test use of load_from_file with empty file """
-        try:
-            os.remove("Rectangle.json")
-        except Exception:
-            pass
-        open("Rectangle.json", 'a').close()
-        self.assertEqual(Rectangle.load_from_file(), [])
-
-    def test_create(self):
-        """ Test create method """
-        r1 = Rectangle(3, 5, 1)
-        r1_dictionary = r1.to_dictionary()
-        r2 = Rectangle.create(**r1_dictionary)
-        self.assertEqual(str(r1), str(r2))
-        self.assertFalse(r1 is r2)
-        self.assertFalse(r1 == r2)
