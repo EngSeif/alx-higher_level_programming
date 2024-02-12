@@ -7,6 +7,7 @@ and to avoid duplicating the same code (by extension, same bugs)
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -24,12 +25,14 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ Convert To JSON """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
+        """ Decode From JSON """
         if json_string is None:
             return []
         return json.loads(json_string)
@@ -46,6 +49,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """ returns an instance with all attributes already set """
         if cls.__name__ == 'Rectangle':
             Dummy = cls(1, 1)
         elif cls.__name__ == 'Square':
@@ -55,6 +59,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """ Loads the JSON string representation of list_objs to a file."""
         filename = cls.__name__ + ".json"
         try:
             with open(filename, mode="r", encoding="utf-8") as Ofile:
@@ -98,3 +103,38 @@ class Base:
     def from_csv(cls, row):
         """ Decode From CSV """
         pass
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ Draw Shapes """
+        pen = turtle.Turtle()
+
+        def draw_rectangle(x, y, width, height):
+            """ Draw Rectangle """
+            pen.penup()
+            pen.goto(x, y)
+            pen.pendown()
+            for _ in range(2):
+                pen.forward(width)
+                pen.left(90)
+                pen.forward(height)
+                pen.left(90)
+
+        def draw_square(x, y, size):
+            """ Draw Square """
+            pen.penup()
+            pen.goto(x, y)
+            pen.pendown()
+            for _ in range(4):
+                pen.forward(size)
+                pen.left(90)
+
+        pen.color("blue")
+        for rectangle in list_rectangles:
+            x, y, width, height = rectangle.x, rectangle.y, rectangle.width, rectangle.height
+            draw_rectangle(x, y, width, height)
+
+        pen.color("blue")
+        for square in list_squares:
+            x, y, size = square.x, square.y, square.size
+            draw_square(x, y, size)
