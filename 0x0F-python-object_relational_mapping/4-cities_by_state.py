@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" List States By User Input - No Injection """
+""" List Cities """
 
 import MySQLdb
 from sys import argv
@@ -12,9 +12,9 @@ if __name__ == "__main__":
         passwd=argv[2],
         db=argv[3])
     cur = db.cursor()
-    com = "SELECT * FROM states WHERE name = %s\
-        ORDER BY states.id ASC"
-    cur.execute(com, (argv[4], ))
+    cur.execute("SELECT cities.id, cities.name, states.name FROM cities\
+                JOIN states ON cities.state_id = states.id\
+                ORDER BY cities.id ASC")
     Result = cur.fetchall()
     for row in Result:
         print(row)
