@@ -15,15 +15,11 @@ if __name__ == "__main__":
     com = """
             SELECT cities.name FROM cities
             JOIN states ON cities.state_id =
-            states.id WHERE states.name Likes %s
+            states.id WHERE states.name = %s
             ORDER BY cities.id ASC
         """
     cur.execute(com, (argv[4], ))
     Result = cur.fetchall()
-    for i, row in enumerate(Result):
-        if i < len(Result) - 1:
-            print(row[0] + ", ", end='')
-        else:
-            print(row[0])
+    print(", ".join(row[0] for row in Result))
     cur.close()
     db.close()
