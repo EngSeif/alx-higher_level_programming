@@ -17,4 +17,5 @@ VALUES
     ("Arizona"),
     ("Texas"),
     ("New York"),
+    ("nana"),
     ("Nevada");
