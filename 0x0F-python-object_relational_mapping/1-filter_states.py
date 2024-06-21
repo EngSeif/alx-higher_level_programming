@@ -12,7 +12,10 @@ if __name__ == "__main__":
         passwd=argv[2],
         db=argv[3])
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    try:
+        cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
+    except Exception as e:
+        exit(1)
     Result = cur.fetchall()
     for row in Result:
         print(row)
