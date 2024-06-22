@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-""" State Module """
+""" City Module """
 
-from sqlalchemy import Column, INTEGER, VARCHAR
+from sqlalchemy import Column, INTEGER, VARCHAR, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
 
-class State(Base):
+class City(Base):
     """
-        State Class
+        City Class
     """
-    __tablename__ = "state"
+    __tablename__ = "cities"
     id = Column(
                 "id", INTEGER,
                 autoincrement=True,
@@ -22,5 +23,10 @@ class State(Base):
     name = Column(
         "name",
         VARCHAR(128),
+        nullable=False
+        )
+    state_id = Column(
+        INTEGER,
+        ForeignKey('states.id'),
         nullable=False
         )
