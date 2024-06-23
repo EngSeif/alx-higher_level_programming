@@ -15,11 +15,12 @@ if __name__ == "__main__":
         cur = db.cursor()
         com = """
                 SELECT * FROM states
-                WHERE name = '{}'
+                WHERE BINARY name = '{:s}'
                 ORDER BY states.id ASC;""".format(argv[4])
         cur.execute(com)
-        Result = cur.fetchone()
-        print(Result)
+        Result = cur.fetchall()
+        for row in Result:
+            print(row)
         cur.close()
         db.close()
     except Exception as e:
