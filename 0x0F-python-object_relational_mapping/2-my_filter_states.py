@@ -16,7 +16,6 @@ if __name__ == "__main__":
             SELECT * FROM states
             WHERE name = '{}'
             ORDER BY states.id ASC;""".format(argv[4])
-    print(com)
     cur.execute(com)
     Result = cur.fetchall()
     for row in Result:
