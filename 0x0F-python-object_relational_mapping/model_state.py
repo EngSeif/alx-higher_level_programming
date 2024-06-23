@@ -11,7 +11,7 @@ class State(Base):
     """
         State Class
     """
-    __tablename__ = "state"
+    __tablename__ = "states"
     id = Column(
                 "id", INTEGER,
                 autoincrement=True,
