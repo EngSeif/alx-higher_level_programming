@@ -12,8 +12,11 @@ if __name__ == "__main__":
         passwd=argv[2],
         db=argv[3])
     cur = db.cursor()
-    com = "SELECT * FROM states WHERE name = {:s} \
-        ORDER BY states.id ASC".format(argv[4])
+    com = """
+            SELECT * FROM states
+            WHERE name = '{}'
+            ORDER BY states.id ASC;""".format(argv[4])
+    print(com)
     cur.execute(com)
     Result = cur.fetchall()
     for row in Result:
