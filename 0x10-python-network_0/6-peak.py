@@ -3,6 +3,7 @@
 Module of find_peak Function
 """
 
+
 def find_peak(list_of_integers):
     """
     Find Biggest Number
