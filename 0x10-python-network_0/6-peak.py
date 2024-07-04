@@ -13,15 +13,16 @@ def find_peak(list_of_integers):
     """
     Find Biggest Number
     """
-    big = 0
-    size = len(list_of_integers) - 1
     if  len(list_of_integers) == 0:
         return None
-    half = (size // 2) + 1
-    for i in range(0, half):
-        if i == 0:
-            big = getBigger(list_of_integers[i], list_of_integers[size-i])
-        else:
-            if big < getBigger(list_of_integers[i], list_of_integers[size-i]):
-                big = getBigger(list_of_integers[i], list_of_integers[size-i])
-    return big
+    midpoint = len(list_of_integers) // 2
+    half_1 = list_of_integers[:midpoint]
+    half_2 = list_of_integers[midpoint:]
+    if sum(half_1) > sum(half_2):
+        if len(half_1) == 1:
+            return half_1[0]
+        return find_peak(half_1)
+    else:
+        if len(half_2) == 1:
+            return half_2[0]
+        return find_peak(half_2)
