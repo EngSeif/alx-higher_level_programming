@@ -15,6 +15,6 @@ if __name__ == "__main__":
 
     commits = r.json()
     for commit in commits:
-        sha = commit['sha']
-        author_name = commit['commit']['author']['name']
+        sha = commit.get("sha")
+        author_name = commit.get('commit').get('author').get('name')
         print(f"{sha}: {author_name}")
