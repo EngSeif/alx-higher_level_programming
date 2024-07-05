@@ -15,5 +15,5 @@ if __name__ == "__main__":
 
     for coms in r.json():
         sha = coms['sha']
-        name = coms['author']['login']
+        name = coms['commit']['committer']['name']
         print(f"{sha}: {name}")
