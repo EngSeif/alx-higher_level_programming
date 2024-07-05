@@ -1,22 +1,24 @@
 #!/usr/bin/python3
-"""Lists the 10 most recent commits on a given GitHub repository.
-
-Usage: ./100-github_commits.py <repository name> <repository owner>
 """
-import sys
-import requests
-
-
+a Python script that takes your GitHub
+credentials (username and password)
+and uses the GitHub API to display your id
+"""
 if __name__ == "__main__":
-    url = "https://api.github.com/repos/{}/{}/commits".format(
-        sys.argv[2], sys.argv[1])
+    import requests
+    from sys import argv
 
+    username = argv[2]
+    Repo_name = argv[1]
+    url = f"https://api.github.com/repos/{username}/{Repo_name}/commits"
     r = requests.get(url)
+
     commits = r.json()
-    try:
-        for i in range(10):
-            print("{}: {}".format(
-                commits[i].get("sha"),
-                commits[i].get("commit").get("author").get("name")))
-    except IndexError:
-        pass
+    i = 0
+    for commit in commits:
+        if i == 10:
+            break
+        sha = commit.get("sha")
+        author_name = commit.get('commit').get('author').get('name')
+        print(f"{sha}: {author_name}")
+        i = i + 1
