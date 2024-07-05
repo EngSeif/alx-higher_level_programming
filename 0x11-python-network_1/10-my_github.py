@@ -10,15 +10,11 @@ if __name__ == "__main__":
 
     username = argv[1]
     passwd = argv[2]
-    url = 'https://api.github.com/user'
-    headers = {
-        "Authorization": f"{username} {passwd}"
-    }
-    r = requests.get(url, headers=headers)
+    url = "https://api.github.com/user"
+    r = requests.get(url, auth=(username, passwd))
 
     if r.status_code == 200:
         cont = r.json()
-        print("hi")
         id = cont['id']
         print(id)
     else:
